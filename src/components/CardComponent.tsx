@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { FetchedElement } from "../constants/interfaces";
-import { CardContent, Card, Typography, CardHeader } from "@mui/material";
+import { CardContent, Card, Typography, CardHeader, Chip } from "@mui/material";
 
 interface CardProps {
     card: FetchedElement
@@ -13,7 +13,7 @@ const CardComponent: FC<CardProps> = ({card}) => {
 
     
 return(
-    <Card sx={{ maxWidth: 200, margin: '5px', maxHeight: 350, minHeight: 350, minWidth: 200}}>
+    <Card sx={{ maxWidth: 250, margin: '5px', maxHeight: 300, minHeight: 300, minWidth: 250, backgroundColor: '#83d2e6'}}>
             <CardHeader
                 onClick={() => setIsPopupOpened(prevState => !prevState)}
                 title={title}
@@ -25,6 +25,13 @@ return(
                     data-testid={'card-title'}
                     variant={'h6'} component="div">
                     {description}
+                </Typography>
+                <Typography
+                    data-testid={'card-title'}
+                    variant={'body1'} component="div">
+                    <Chip 
+                    label={category} 
+                    sx={{marginTop: '5px', marginBottom: '5px', width: '65%' }}/>
                 </Typography>
             </CardContent>
 
