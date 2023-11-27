@@ -27,12 +27,10 @@ return(
 
             <CardContent>
                 <Typography
-                    data-testid={'card-title'}
                     variant={'h6'} component="div">
                     {description}
                 </Typography>
                 <Typography
-                    data-testid={'card-title'}
                     variant={'body1'} component="div">
                     <Chip 
                     label={category} 

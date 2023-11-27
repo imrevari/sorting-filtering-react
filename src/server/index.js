@@ -9,4 +9,4 @@ const router = require('./router')
 app.use('/api', router)
 
 
-app.listen(3001, () => console.log('Server Started'))
+app.listen(3001, () => console.log('Server Started on port 3001'))
