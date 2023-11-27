@@ -1,0 +1,49 @@
+ [
+        {
+            "id": 1,
+            "description": "Movie about spider man",
+            "date": "2002-11-06",
+            "title": "Spider Man",
+            "category": "fantasy"
+        },
+        {
+            
+    
+            "id": 2,
+            "description": "Movie about super hero",
+            "date": "2022-05-12",
+            "title": "Super Man",
+            "category": "comedy"
+        },
+        {
+            
+            "id": 3,
+            "description": "Kevin stays home alone",
+            "date": "2007-06-17",
+            "title": "Home alone",
+            "category": "comedy"
+        },
+        {
+
+            "id": 4,
+            "description": "Pople fighting on alien planet",
+            "date": "2023-05-31",
+            "title": "Avatar",
+            "category": "fantasy"
+        },
+        {
+            
+            "id": 5,
+            "description": "Pets saving the town again",
+            "date": "2019-06-25",
+            "title": "Pew Patrol",
+            "category": "kids"
+        },
+        {
+            "id": 6,
+            "description": "Keving solt and found in New York",
+            "date": "1979-11-11",
+            "title": "Home alone w",
+            "category": "family"
+        }
+    ]
