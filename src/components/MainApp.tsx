@@ -4,12 +4,16 @@ import { FetchedElement } from "../constants/interfaces";
 import axios from "axios";
 import { API_URL } from "../constants/constants";
 import { Box, Container } from "@mui/material";
+import Header from "./Header";
+import { SortByType } from "../constants/types";
 
 
 
 const MainApp: FC = () => {
 
     const [fetchedData, setFetchedData] = useState<FetchedElement[]>([])
+    const [sortBy, setSortBy] = useState<SortByType>(null)
+    const [isAsc, setIsAsc] = useState<boolean>(true)
 
     //fetch data
     useEffect( () => {
@@ -39,7 +43,9 @@ return(
                         flexWrap: 'wrap', 
                         alignItems: 'center',
                         flexDirection: 'column', 
-                        justifyContent: 'center'}}>
+                        justifyContent: 'center'}}> 
+            <Header sortBy={sortBy} setSortBy={setSortBy} isAsc={isAsc} setIsAsc={setIsAsc}/>
+
             {fetchedData.length > 0 &&
             <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center'}}>
                 {fetchedData.map( (data) => <CardComponent card={data} key={data.id}/>)} 
