@@ -12,7 +12,7 @@ import { SortByType } from "../constants/types";
 const MainApp: FC = () => {
 
     const [fetchedData, setFetchedData] = useState<FetchedElement[]>([])
-    const [sortBy, setSortBy] = useState<SortByType>(null)
+    const [sortBy, setSortBy] = useState<SortByType>('')
     const [isAsc, setIsAsc] = useState<boolean>(true)
 
     //fetch data

@@ -30,7 +30,6 @@ const Header: FC<HeaderProps> = ({sortBy, isAsc, setSortBy, setIsAsc}) => {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={sortBy}
-                    label="Age"
                     onChange={(e) => selectSortBy(e.target.value)}
                 >   
                     <MenuItem value={'title'}>title</MenuItem>
