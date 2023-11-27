@@ -1,4 +1,4 @@
-import { Box, FormControl, FormControlLabel, InputLabel, MenuItem, Select, SelectChangeEvent, Switch } from "@mui/material";
+import { Box, FormControl, FormControlLabel, InputLabel, MenuItem, Select, Switch } from "@mui/material";
 import { FC } from "react";
 import { SortByType } from "../constants/types";
 

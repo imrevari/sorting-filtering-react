@@ -1,7 +1,7 @@
 import { Box, Checkbox, FormControlLabel, FormGroup } from "@mui/material";
-import { Dispatch, FC, SetStateAction } from "react";
-import { FilterByProp } from "../constants/interfaces";
+import { FC } from "react";
 import { Category } from "../constants/enums";
+import { FilterByProp } from "../constants/interfaces";
 
 interface FilterByHeaderProps {
     filterBy: FilterByProp[];

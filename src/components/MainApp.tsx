@@ -92,8 +92,6 @@ const MainApp: FC = () => {
           })
     }, [])
 
-    //filtered sorted list useMemo
-
     
 return(
     <Container >
