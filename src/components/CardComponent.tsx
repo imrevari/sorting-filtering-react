@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import { FetchedElement } from "../constants/interfaces";
 import { CardContent, Card, Typography, CardHeader, Chip } from "@mui/material";
+import PopupWindow from "./PopupWindow";
 
 interface CardProps {
     card: FetchedElement
@@ -10,6 +11,10 @@ const CardComponent: FC<CardProps> = ({card}) => {
 
     const [isPopupOpened, setIsPopupOpened] = useState<boolean>(false)
     const {description, date, title, category} = card;
+
+    const closePopupWindow = () => {
+        setIsPopupOpened(false)
+    }
 
     
 return(
@@ -35,7 +40,7 @@ return(
                 </Typography>
             </CardContent>
 
-            {/* {isPopupOpened && <PopupWindow isOpen={isPopupOpened} closePopup={setIsPopupOpened}/>} */}
+            {isPopupOpened && <PopupWindow isOpen={isPopupOpened} closePopup={closePopupWindow} card={card}/>}
 
         </Card>
 )
