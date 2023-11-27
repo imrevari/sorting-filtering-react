@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import CardComponent from "./CardComponent";
 import { FetchedElement, FilterByProp } from "../constants/interfaces";
 import axios from "axios";
@@ -31,6 +31,49 @@ const MainApp: FC = () => {
         })
         setFilterBy(selected)
     }
+
+    const filteredSortedData = useMemo(() => {
+        const textSort = (a: string, b: string, isAsc: boolean) =>{
+            if (a < b) {
+                return isAsc ? -1 : 1;
+              }
+              if (a > b) {
+                return isAsc ? 1 : -1;
+              }
+              return 0;
+        }
+
+        const sortingFuction = (filtered: FetchedElement[], sortBy: SortByType, isAsc: boolean) =>{
+            switch (sortBy) {
+                case 'title':
+                    filtered.sort(({title: a}, {title: b} ) =>  textSort(a, b, isAsc))
+                    break;
+                case 'category': 
+                    filtered.sort(({category: a}, {category: b} ) => textSort(a, b, isAsc))
+                    break;
+                case 'date':
+                    filtered.sort(({date: a}, {date: b} ) => 
+                    isAsc ? (new Date(a).getTime() - new Date(b).getTime()) : (new Date(b).getTime() - new Date(a).getTime()))
+                    break;
+            }
+            return filtered;
+        }
+
+
+
+
+        const data = [...fetchedData]
+        const selectedCategories = filterBy.map(({category, selected}) => {
+            if(selected){
+                return category
+            }
+        })
+        const filtered = data.filter(({category}) => selectedCategories.includes(category))
+        const sorted = sortingFuction(filtered, sortBy, isAsc)
+
+        return sorted
+    },
+    [fetchedData, sortBy, isAsc, filterBy])
 
     //fetch data
     useEffect( () => {
@@ -66,7 +109,7 @@ return(
 
             {fetchedData.length > 0 &&
             <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center'}}>
-                {fetchedData.map( (data) => <CardComponent card={data} key={data.id}/>)} 
+                {filteredSortedData.map( (data) => <CardComponent card={data} key={data.id}/>)} 
             </Box>}                      
         </Box>
     </Container>

@@ -16,7 +16,6 @@ const Header: FC<HeaderProps> = ({sortBy, isAsc, setSortBy, setIsAsc}) => {
     }
 
     const selectSortBy = (value: any) => {
-        console.log(value)
         setSortBy(value)
     }
 
