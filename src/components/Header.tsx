@@ -22,7 +22,7 @@ const Header: FC<HeaderProps> = ({sortBy, isAsc, setSortBy, setIsAsc}) => {
 
     
     return(
-        <Box sx={{ display: 'flex',  width: '50%',flexDirection: 'row', margin: '30px 0 20px 0'}}>
+        <Box sx={{ display: 'flex',  width: '50%',flexDirection: 'row', margin: '30px 0 5px 0'}}>
 
             <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Sort by</InputLabel>

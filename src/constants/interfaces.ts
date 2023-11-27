@@ -7,3 +7,8 @@ export interface FetchedElement {
     title: string;
     category: Category;
 }
+
+export interface FilterByProp {
+    category: Category;
+    selected: boolean;
+}
