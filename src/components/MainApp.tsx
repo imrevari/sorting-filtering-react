@@ -1,13 +1,12 @@
-import { FC, useEffect, useMemo, useState } from "react";
-import CardComponent from "./CardComponent";
-import { FetchedElement, FilterByProp } from "../constants/interfaces";
-import axios from "axios";
-import { API_URL } from "../constants/constants";
 import { Box, Container } from "@mui/material";
-import Header from "./Header";
-import { SortByType } from "../constants/types";
+import { FC, useMemo, useState } from "react";
 import { Category } from "../constants/enums";
+import { FetchedElement, FilterByProp } from "../constants/interfaces";
+import { SortByType } from "../constants/types";
+import { useFetchData } from "../service/customHooks";
+import CardComponent from "./CardComponent";
 import FilterByHeader from "./FilterByHeader";
+import Header from "./Header";
 
 const MainApp: FC = () => {
   const categoryValues = Object.values(Category);
@@ -15,7 +14,7 @@ const MainApp: FC = () => {
     return { category: e, selected: true };
   });
 
-  const [fetchedData, setFetchedData] = useState<FetchedElement[]>([]);
+  const {fetchedData} = useFetchData();
   const [sortBy, setSortBy] = useState<SortByType>("");
   const [isAsc, setIsAsc] = useState<boolean>(true);
   const [filterBy, setFilterBy] = useState<FilterByProp[]>([
@@ -83,21 +82,6 @@ const MainApp: FC = () => {
 
     return sorted;
   }, [fetchedData, sortBy, isAsc, filterBy]);
-
-  //fetch data
-  useEffect(() => {
-    axios
-      .get(API_URL)
-      .then((res) => {
-        const responseBody = res.data;
-        if (responseBody) {
-          setFetchedData(responseBody);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   return (
     <Container>
