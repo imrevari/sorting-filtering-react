@@ -37,13 +37,13 @@ const Header: FC<HeaderProps> = ({sortBy, isAsc, setSortBy, setIsAsc}) => {
                 </Select>
             </FormControl>
 
-            <FormControlLabel
+            {sortBy != null && <FormControlLabel
                 sx={{marginLeft: '10px'}}
                 control={
                     <Switch checked={isAsc} onChange={triggerSwitch} name="isAsce" />
                 }
                 label="Ascending"
-                />
+                />}
                 
         </Box>
     )

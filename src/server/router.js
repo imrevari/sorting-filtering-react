@@ -13,10 +13,6 @@ router.get('/', (req, res) => {
     res.send(localData)
 })
 
-router.get('/', (req, res) => {
-    res.send(localData)
-})
-
 router.post('/', (req, res) => {
     let newData = req.body
     const latData = localData[localData.length - 1]
