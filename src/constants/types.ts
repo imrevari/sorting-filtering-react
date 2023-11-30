@@ -1,1 +1,1 @@
-export type SortByType = 'date' | 'title' | 'category' | '';
+export type SortByType = "date" | "title" | "category" | "";
